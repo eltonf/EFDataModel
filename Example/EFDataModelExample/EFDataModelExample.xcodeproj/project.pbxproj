@@ -1,0 +1,492 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F4BC55CD1922CF380057BAE4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BC55CC1922CF380057BAE4 /* Foundation.framework */; };
+		F4BC55CF1922CF380057BAE4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BC55CE1922CF380057BAE4 /* CoreGraphics.framework */; };
+		F4BC55D11922CF380057BAE4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BC55D01922CF380057BAE4 /* UIKit.framework */; };
+		F4BC55D71922CF380057BAE4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4BC55D51922CF380057BAE4 /* InfoPlist.strings */; };
+		F4BC55D91922CF380057BAE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BC55D81922CF380057BAE4 /* main.m */; };
+		F4BC55DD1922CF380057BAE4 /* EFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BC55DC1922CF380057BAE4 /* EFAppDelegate.m */; };
+		F4BC55E01922CF380057BAE4 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4BC55DE1922CF380057BAE4 /* Main_iPhone.storyboard */; };
+		F4BC55E31922CF380057BAE4 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4BC55E11922CF380057BAE4 /* Main_iPad.storyboard */; };
+		F4BC55E61922CF380057BAE4 /* EFFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BC55E51922CF380057BAE4 /* EFFirstViewController.m */; };
+		F4BC55E91922CF380057BAE4 /* EFSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BC55E81922CF380057BAE4 /* EFSecondViewController.m */; };
+		F4BC55EB1922CF380057BAE4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4BC55EA1922CF380057BAE4 /* Images.xcassets */; };
+		F4BC55F21922CF380057BAE4 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BC55F11922CF380057BAE4 /* XCTest.framework */; };
+		F4BC55F31922CF380057BAE4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BC55CC1922CF380057BAE4 /* Foundation.framework */; };
+		F4BC55F41922CF380057BAE4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BC55D01922CF380057BAE4 /* UIKit.framework */; };
+		F4BC55FC1922CF380057BAE4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4BC55FA1922CF380057BAE4 /* InfoPlist.strings */; };
+		F4BC55FE1922CF380057BAE4 /* EFDataModelExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BC55FD1922CF380057BAE4 /* EFDataModelExampleTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F4BC55F51922CF380057BAE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4BC55C11922CF380057BAE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F4BC55C81922CF380057BAE4;
+			remoteInfo = EFDataModelExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F4BC55C91922CF380057BAE4 /* EFDataModelExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EFDataModelExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4BC55CC1922CF380057BAE4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F4BC55CE1922CF380057BAE4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F4BC55D01922CF380057BAE4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F4BC55D41922CF380057BAE4 /* EFDataModelExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EFDataModelExample-Info.plist"; sourceTree = "<group>"; };
+		F4BC55D61922CF380057BAE4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F4BC55D81922CF380057BAE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F4BC55DA1922CF380057BAE4 /* EFDataModelExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EFDataModelExample-Prefix.pch"; sourceTree = "<group>"; };
+		F4BC55DB1922CF380057BAE4 /* EFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EFAppDelegate.h; sourceTree = "<group>"; };
+		F4BC55DC1922CF380057BAE4 /* EFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EFAppDelegate.m; sourceTree = "<group>"; };
+		F4BC55DF1922CF380057BAE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		F4BC55E21922CF380057BAE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		F4BC55E41922CF380057BAE4 /* EFFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EFFirstViewController.h; sourceTree = "<group>"; };
+		F4BC55E51922CF380057BAE4 /* EFFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EFFirstViewController.m; sourceTree = "<group>"; };
+		F4BC55E71922CF380057BAE4 /* EFSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EFSecondViewController.h; sourceTree = "<group>"; };
+		F4BC55E81922CF380057BAE4 /* EFSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EFSecondViewController.m; sourceTree = "<group>"; };
+		F4BC55EA1922CF380057BAE4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F4BC55F01922CF380057BAE4 /* EFDataModelExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EFDataModelExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4BC55F11922CF380057BAE4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F4BC55F91922CF380057BAE4 /* EFDataModelExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EFDataModelExampleTests-Info.plist"; sourceTree = "<group>"; };
+		F4BC55FB1922CF380057BAE4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F4BC55FD1922CF380057BAE4 /* EFDataModelExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EFDataModelExampleTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F4BC55C61922CF380057BAE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4BC55CF1922CF380057BAE4 /* CoreGraphics.framework in Frameworks */,
+				F4BC55D11922CF380057BAE4 /* UIKit.framework in Frameworks */,
+				F4BC55CD1922CF380057BAE4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4BC55ED1922CF380057BAE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4BC55F21922CF380057BAE4 /* XCTest.framework in Frameworks */,
+				F4BC55F41922CF380057BAE4 /* UIKit.framework in Frameworks */,
+				F4BC55F31922CF380057BAE4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F4BC55C01922CF380057BAE4 = {
+			isa = PBXGroup;
+			children = (
+				F4BC55D21922CF380057BAE4 /* EFDataModelExample */,
+				F4BC55F71922CF380057BAE4 /* EFDataModelExampleTests */,
+				F4BC55CB1922CF380057BAE4 /* Frameworks */,
+				F4BC55CA1922CF380057BAE4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F4BC55CA1922CF380057BAE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F4BC55C91922CF380057BAE4 /* EFDataModelExample.app */,
+				F4BC55F01922CF380057BAE4 /* EFDataModelExampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F4BC55CB1922CF380057BAE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4BC55CC1922CF380057BAE4 /* Foundation.framework */,
+				F4BC55CE1922CF380057BAE4 /* CoreGraphics.framework */,
+				F4BC55D01922CF380057BAE4 /* UIKit.framework */,
+				F4BC55F11922CF380057BAE4 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F4BC55D21922CF380057BAE4 /* EFDataModelExample */ = {
+			isa = PBXGroup;
+			children = (
+				F4BC55DB1922CF380057BAE4 /* EFAppDelegate.h */,
+				F4BC55DC1922CF380057BAE4 /* EFAppDelegate.m */,
+				F4BC55DE1922CF380057BAE4 /* Main_iPhone.storyboard */,
+				F4BC55E11922CF380057BAE4 /* Main_iPad.storyboard */,
+				F4BC55E41922CF380057BAE4 /* EFFirstViewController.h */,
+				F4BC55E51922CF380057BAE4 /* EFFirstViewController.m */,
+				F4BC55E71922CF380057BAE4 /* EFSecondViewController.h */,
+				F4BC55E81922CF380057BAE4 /* EFSecondViewController.m */,
+				F4BC55EA1922CF380057BAE4 /* Images.xcassets */,
+				F4BC55D31922CF380057BAE4 /* Supporting Files */,
+			);
+			path = EFDataModelExample;
+			sourceTree = "<group>";
+		};
+		F4BC55D31922CF380057BAE4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F4BC55D41922CF380057BAE4 /* EFDataModelExample-Info.plist */,
+				F4BC55D51922CF380057BAE4 /* InfoPlist.strings */,
+				F4BC55D81922CF380057BAE4 /* main.m */,
+				F4BC55DA1922CF380057BAE4 /* EFDataModelExample-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F4BC55F71922CF380057BAE4 /* EFDataModelExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				F4BC55FD1922CF380057BAE4 /* EFDataModelExampleTests.m */,
+				F4BC55F81922CF380057BAE4 /* Supporting Files */,
+			);
+			path = EFDataModelExampleTests;
+			sourceTree = "<group>";
+		};
+		F4BC55F81922CF380057BAE4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F4BC55F91922CF380057BAE4 /* EFDataModelExampleTests-Info.plist */,
+				F4BC55FA1922CF380057BAE4 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F4BC55C81922CF380057BAE4 /* EFDataModelExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4BC56011922CF380057BAE4 /* Build configuration list for PBXNativeTarget "EFDataModelExample" */;
+			buildPhases = (
+				F4BC55C51922CF380057BAE4 /* Sources */,
+				F4BC55C61922CF380057BAE4 /* Frameworks */,
+				F4BC55C71922CF380057BAE4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EFDataModelExample;
+			productName = EFDataModelExample;
+			productReference = F4BC55C91922CF380057BAE4 /* EFDataModelExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F4BC55EF1922CF380057BAE4 /* EFDataModelExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4BC56041922CF380057BAE4 /* Build configuration list for PBXNativeTarget "EFDataModelExampleTests" */;
+			buildPhases = (
+				F4BC55EC1922CF380057BAE4 /* Sources */,
+				F4BC55ED1922CF380057BAE4 /* Frameworks */,
+				F4BC55EE1922CF380057BAE4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F4BC55F61922CF380057BAE4 /* PBXTargetDependency */,
+			);
+			name = EFDataModelExampleTests;
+			productName = EFDataModelExampleTests;
+			productReference = F4BC55F01922CF380057BAE4 /* EFDataModelExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F4BC55C11922CF380057BAE4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = EF;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "290 Design, LLC";
+				TargetAttributes = {
+					F4BC55EF1922CF380057BAE4 = {
+						TestTargetID = F4BC55C81922CF380057BAE4;
+					};
+				};
+			};
+			buildConfigurationList = F4BC55C41922CF380057BAE4 /* Build configuration list for PBXProject "EFDataModelExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F4BC55C01922CF380057BAE4;
+			productRefGroup = F4BC55CA1922CF380057BAE4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F4BC55C81922CF380057BAE4 /* EFDataModelExample */,
+				F4BC55EF1922CF380057BAE4 /* EFDataModelExampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F4BC55C71922CF380057BAE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4BC55E31922CF380057BAE4 /* Main_iPad.storyboard in Resources */,
+				F4BC55EB1922CF380057BAE4 /* Images.xcassets in Resources */,
+				F4BC55E01922CF380057BAE4 /* Main_iPhone.storyboard in Resources */,
+				F4BC55D71922CF380057BAE4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4BC55EE1922CF380057BAE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4BC55FC1922CF380057BAE4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F4BC55C51922CF380057BAE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4BC55D91922CF380057BAE4 /* main.m in Sources */,
+				F4BC55E91922CF380057BAE4 /* EFSecondViewController.m in Sources */,
+				F4BC55DD1922CF380057BAE4 /* EFAppDelegate.m in Sources */,
+				F4BC55E61922CF380057BAE4 /* EFFirstViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4BC55EC1922CF380057BAE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4BC55FE1922CF380057BAE4 /* EFDataModelExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F4BC55F61922CF380057BAE4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F4BC55C81922CF380057BAE4 /* EFDataModelExample */;
+			targetProxy = F4BC55F51922CF380057BAE4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F4BC55D51922CF380057BAE4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4BC55D61922CF380057BAE4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F4BC55DE1922CF380057BAE4 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4BC55DF1922CF380057BAE4 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		F4BC55E11922CF380057BAE4 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4BC55E21922CF380057BAE4 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		F4BC55FA1922CF380057BAE4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4BC55FB1922CF380057BAE4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F4BC55FF1922CF380057BAE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F4BC56001922CF380057BAE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F4BC56021922CF380057BAE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EFDataModelExample/EFDataModelExample-Prefix.pch";
+				INFOPLIST_FILE = "EFDataModelExample/EFDataModelExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F4BC56031922CF380057BAE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EFDataModelExample/EFDataModelExample-Prefix.pch";
+				INFOPLIST_FILE = "EFDataModelExample/EFDataModelExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F4BC56051922CF380057BAE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EFDataModelExample.app/EFDataModelExample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EFDataModelExample/EFDataModelExample-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "EFDataModelExampleTests/EFDataModelExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F4BC56061922CF380057BAE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EFDataModelExample.app/EFDataModelExample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EFDataModelExample/EFDataModelExample-Prefix.pch";
+				INFOPLIST_FILE = "EFDataModelExampleTests/EFDataModelExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F4BC55C41922CF380057BAE4 /* Build configuration list for PBXProject "EFDataModelExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4BC55FF1922CF380057BAE4 /* Debug */,
+				F4BC56001922CF380057BAE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4BC56011922CF380057BAE4 /* Build configuration list for PBXNativeTarget "EFDataModelExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4BC56021922CF380057BAE4 /* Debug */,
+				F4BC56031922CF380057BAE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F4BC56041922CF380057BAE4 /* Build configuration list for PBXNativeTarget "EFDataModelExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4BC56051922CF380057BAE4 /* Debug */,
+				F4BC56061922CF380057BAE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F4BC55C11922CF380057BAE4 /* Project object */;
+}
