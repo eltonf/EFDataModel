@@ -1,0 +1,8 @@
+platform :ios, '6.0'
+workspace '../../EFDataModel'
+
+def import_pods
+  pod 'OCMock', '~> 2.1.1'
+  pod 'Expecta', '~> 0.2.1'
+  pod 'EFDataModel', :path => '../..'
+end

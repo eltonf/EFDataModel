@@ -288,6 +288,7 @@
 				F437BDFF19232BE0008D9317 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
