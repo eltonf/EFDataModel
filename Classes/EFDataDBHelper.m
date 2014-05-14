@@ -24,7 +24,9 @@ static NSDictionary *_databaseMap;
 {
     [super initialize];
     
-    NSString *dbMapFilePath = [[NSBundle mainBundle] pathForResource:@"EFDataModelDatabaseMap" ofType:@"plist"];
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSString *dbMapFilePath = [bundle pathForResource:@"EFDataModelDatabaseMap" ofType:@"plist"];
+//    NSString *dbMapFilePath = [[NSBundle mainBundle] pathForResource:@"EFDataModelDatabaseMap" ofType:@"plist"];
     _databaseMap = [NSDictionary dictionaryWithContentsOfFile:dbMapFilePath];
 }
 

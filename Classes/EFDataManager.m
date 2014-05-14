@@ -12,9 +12,9 @@
 #import "FMDB.h"
 #import "DDLog.h"
 
-static const int ddLogLevel = LOG_LEVEL_INFO;
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
-static FMDatabaseQueue *_appDatabase;
+static FMDatabaseQueue *_databaseQueue;
 static NSDictionary *_databaseMap;
 
 @implementation EFDataManager
@@ -28,8 +28,41 @@ static NSDictionary *_databaseMap;
     NSString *dbMapFilePath = [[NSBundle mainBundle] pathForResource:@"EFDataModelDatabaseMap" ofType:@"plist"];
     _databaseMap = [NSDictionary dictionaryWithContentsOfFile:dbMapFilePath];
     
-    NSString * dbFilePath = [self databaseFilePathWithFileName:@"database.sqlite"];
-    _appDatabase = [FMDatabaseQueue databaseQueueWithPath:dbFilePath];
+//    NSString * dbFilePath = [self databaseFilePathWithFileName:@"EFDataDB.sqlite"];
+//    _databaseQueue = [FMDatabaseQueue databaseQueueWithPath:dbFilePath];
+}
+
++ (void)setDatabaseName:(NSString *)databaseName
+{
+    if (_databaseQueue) {
+        [_databaseQueue close];
+    }
+    NSString *dbFilePath = [self databaseFilePathWithFileName:databaseName];
+    _databaseQueue = [FMDatabaseQueue databaseQueueWithPath:dbFilePath];
+}
+
++ (void)setDatabaseMap:(NSDictionary *)databaseMap
+{
+    _databaseMap = databaseMap;
+}
+
++ (BOOL)deleteDatabaseWitName:(NSString *)databaseName
+{
+    BOOL deleteSuccess;
+    NSString *filePath = [self databaseFilePathWithFileName:databaseName];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        NSError *error = nil;
+        deleteSuccess = [[NSFileManager defaultManager] removeItemAtPath:filePath error:&error];
+        if (!deleteSuccess) {
+            DDLogError(@"ERROR: Failed to delete data: %@", filePath);
+        }
+    } else {
+        deleteSuccess = YES;
+        DDLogVerbose(@"Nothing to delete. No file exists at: %@", filePath);
+    }
+    
+    return deleteSuccess;
 }
 
 + (NSString *)databaseFilePathWithFileName:(NSString *)fileName
@@ -40,13 +73,18 @@ static NSDictionary *_databaseMap;
         return nil;
     }
     
-    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString * documentsDirectory = [paths objectAtIndex:0];
-    NSString * filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
     
 	DDLogVerbose(@"File path (%@): %@", fileName, filePath);
     
     return filePath;
+}
+
++ (FMDatabaseQueue *)databaseQueue
+{
+    return _databaseQueue;
 }
 
 + (void)logLastError:(FMDatabase *)db
@@ -61,7 +99,7 @@ static NSDictionary *_databaseMap;
 {
     id <DBModelProtocol> firstObject = [items firstObject];
     NSString *dataType = [[firstObject class] dbModelDataType];
-    return [EFDataDBHelper saveUsingDatabaseQueue:_appDatabase items:items dataType:dataType];
+    return [EFDataDBHelper saveUsingDatabaseQueue:_databaseQueue items:items dataType:dataType];
 }
 
 #pragma mark - Retrieve Data
@@ -75,7 +113,7 @@ static NSDictionary *_databaseMap;
 + (NSArray *)itemsWithDataType:(NSString *)dataType query:(NSString *)query arguments:(NSArray *)arguments
 {
     __block NSMutableArray *result = [NSMutableArray new];
-    [_appDatabase inDatabase:^(FMDatabase *db) {
+    [_databaseQueue inDatabase:^(FMDatabase *db) {
         FMResultSet *rs = [db executeQuery:query withArgumentsInArray:arguments];
         
         if ([db hadError]) {
@@ -95,7 +133,7 @@ static NSDictionary *_databaseMap;
 + (id)itemWithDataType:(NSString *)dataType query:(NSString *)query arguments:(NSArray *)arguments
 {
     __block id item;
-    [_appDatabase inDatabase:^(FMDatabase *db) {
+    [_databaseQueue inDatabase:^(FMDatabase *db) {
         FMResultSet *rs = [db executeQuery:query withArgumentsInArray:arguments];
         
         if ([db hadError]) {

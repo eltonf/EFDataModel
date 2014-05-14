@@ -1,0 +1,34 @@
+PODS:
+  - CocoaLumberjack (1.8.1):
+    - CocoaLumberjack/Extensions
+  - CocoaLumberjack/Core (1.8.1)
+  - CocoaLumberjack/Extensions (1.8.1):
+    - CocoaLumberjack/Core
+  - EFDataModel (0.1.0):
+    - CocoaLumberjack (~> 1.8.1)
+    - FMDB (~> 2.2)
+  - Expecta (0.2.4)
+  - FMDB (2.3):
+    - FMDB/standard
+  - FMDB/common (2.3)
+  - FMDB/standard (2.3):
+    - FMDB/common
+  - OCMock (2.1.1)
+
+DEPENDENCIES:
+  - EFDataModel (from `../..`)
+  - Expecta (~> 0.2.1)
+  - OCMock (~> 2.1.1)
+
+EXTERNAL SOURCES:
+  EFDataModel:
+    :path: ../..
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: 020378ec400d658923bf5887178394f65f052c90
+  EFDataModel: 6e6c1230b802e10838a18ba958e3bfb996bba259
+  Expecta: 5c147dedfea5fbcf773995f7e65020abcc936ce5
+  FMDB: 8b6b69b1164e3007d7f4b3b3719e667602ec247e
+  OCMock: 4320c8b003c01f9718e69453690228298b9614b5
+
+COCOAPODS: 0.32.1

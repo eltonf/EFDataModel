@@ -57,13 +57,14 @@
 
 - (void)addSampleItem:(id)sender
 {
-    NSInteger primaryKey1 = [self randomNumberFrom:0 to:1000];
-    NSInteger primaryKey2 = [self randomNumberFrom:1001 to:2000];
-    NSInteger primaryKey3 = [self randomNumberFrom:2001 to:3000];
+    NSInteger primaryKey1 = [self randomIntegerFrom:0 to:1000];
+    NSInteger primaryKey2 = [self randomIntegerFrom:1001 to:2000];
+    NSInteger primaryKey3 = [self randomIntegerFrom:2001 to:3000];
     EFSampleItem1 *sampleItem = [[EFSampleItem1 alloc] initWithPrimaryKey1:primaryKey1 primaryKey2:primaryKey2 primaryKey3:primaryKey3];
     sampleItem.stringValue = [self randomText];
-    sampleItem.integerValue = [self randomNumberFrom:0 to:1000];
-    sampleItem.boolValue = [self randomNumberFrom:0 to:1];
+    sampleItem.doubleValue = [self randomIntegerFrom:0 to:1000] + drand48();
+    sampleItem.integerValue = [self randomIntegerFrom:0 to:1000];
+    sampleItem.boolValue = [self randomBool];
     sampleItem.dateValue = [self randomDate];
     [EFDataManager saveItems:@[sampleItem]];
     
@@ -72,18 +73,24 @@
 
 - (NSString *)randomText
 {
-    return [NSString stringWithFormat:@"text: %0.f", [self randomNumberFrom:0 to:1000]];
+    return [NSString stringWithFormat:@"text: %0.f", [self randomIntegerFrom:0 to:1000]];
 }
 
 - (NSDate *)randomDate
 {
-    return [NSDate dateWithTimeIntervalSinceNow:[self randomNumberFrom:0 to:10000]];
+    return [NSDate dateWithTimeIntervalSinceNow:[self randomIntegerFrom:0 to:10000]];
 }
 
-- (CGFloat)randomNumberFrom:(NSInteger)from to:(NSInteger)to
+- (CGFloat)randomIntegerFrom:(NSInteger)from to:(NSInteger)to
 {
     //    return (arc4random() % to) + from;
     return (arc4random() % (to - from)) + from;
+}
+
+- (BOOL)randomBool
+{
+    NSInteger number = [self randomIntegerFrom:0 to:2];
+    return [[NSNumber numberWithInteger:number] boolValue];
 }
 
 - (NSArray *)itemsWithPrimaryKey1:(NSInteger)primaryKey1 primaryKey2:(NSInteger)primaryKey2 primaryKey3:(NSInteger)primaryKey3
@@ -127,7 +134,7 @@
     // Configure the cell...
     EFSampleItem1 *item = [self itemAtIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"key1 [%ld], key2 [%ld], key3 [%ld]", (long)item.primaryKeyPart1, (long)item.primaryKeyPart2, (long)item.primaryKeyPart3];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"string [%@], integer [%ld], bool [%@], date [%@]", item.stringValue, (long)item.integerValue, item.boolValue ? @"YES" : @"NO", item.dateValue];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"s [%@], i [%ld], b [%@], d [%@]", item.stringValue, (long)item.integerValue, item.boolValue ? @"YES" : @"NO", item.dateValue];
     
     return cell;
 }

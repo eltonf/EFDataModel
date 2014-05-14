@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AEA55668C6CF41CE957307B3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA92218CBD44EB4969D2E82 /* libPods.a */; };
 		F437BDF119232BE0008D9317 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F437BDD4192326A0008D9317 /* XCTest.framework */; };
 		F437BDF219232BE0008D9317 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F437BDC6192326A0008D9317 /* Foundation.framework */; };
 		F437BDF319232BE0008D9317 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F437BDD7192326A0008D9317 /* UIKit.framework */; };
 		F437BDF919232BE0008D9317 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F437BDF719232BE0008D9317 /* InfoPlist.strings */; };
 		F437BDFB19232BE0008D9317 /* EFDataModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F437BDFA19232BE0008D9317 /* EFDataModelTests.m */; };
+		F437BE02192332BA008D9317 /* EFTestItem1.m in Sources */ = {isa = PBXBuildFile; fileRef = F437BE01192332BA008D9317 /* EFTestItem1.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5FA92218CBD44EB4969D2E82 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC3A1C80190B48BD8B6BC729 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		F437BDC6192326A0008D9317 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F437BDD4192326A0008D9317 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		F437BDD7192326A0008D9317 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -23,6 +27,8 @@
 		F437BDF819232BE0008D9317 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F437BDFA19232BE0008D9317 /* EFDataModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EFDataModelTests.m; sourceTree = "<group>"; };
 		F437BDFC19232BE0008D9317 /* EFDataModelTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EFDataModelTests-Prefix.pch"; sourceTree = "<group>"; };
+		F437BE00192332BA008D9317 /* EFTestItem1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFTestItem1.h; sourceTree = "<group>"; };
+		F437BE01192332BA008D9317 /* EFTestItem1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFTestItem1.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +39,7 @@
 				F437BDF119232BE0008D9317 /* XCTest.framework in Frameworks */,
 				F437BDF319232BE0008D9317 /* UIKit.framework in Frameworks */,
 				F437BDF219232BE0008D9317 /* Foundation.framework in Frameworks */,
+				AEA55668C6CF41CE957307B3 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +52,7 @@
 				F437BDF419232BE0008D9317 /* EFDataModelTests */,
 				F437BDC5192326A0008D9317 /* Frameworks */,
 				F437BDC4192326A0008D9317 /* Products */,
+				BC3A1C80190B48BD8B6BC729 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +70,7 @@
 				F437BDC6192326A0008D9317 /* Foundation.framework */,
 				F437BDD4192326A0008D9317 /* XCTest.framework */,
 				F437BDD7192326A0008D9317 /* UIKit.framework */,
+				5FA92218CBD44EB4969D2E82 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -69,6 +78,8 @@
 		F437BDF419232BE0008D9317 /* EFDataModelTests */ = {
 			isa = PBXGroup;
 			children = (
+				F437BE00192332BA008D9317 /* EFTestItem1.h */,
+				F437BE01192332BA008D9317 /* EFTestItem1.m */,
 				F437BDFA19232BE0008D9317 /* EFDataModelTests.m */,
 				F437BDF519232BE0008D9317 /* Supporting Files */,
 			);
@@ -92,9 +103,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F437BDFD19232BE0008D9317 /* Build configuration list for PBXNativeTarget "EFDataModelTests" */;
 			buildPhases = (
+				D931DEAA0BAD40ACBAB95F12 /* Check Pods Manifest.lock */,
 				F437BDEC19232BE0008D9317 /* Sources */,
 				F437BDED19232BE0008D9317 /* Frameworks */,
 				F437BDEE19232BE0008D9317 /* Resources */,
+				CFCB24E09C7340EA9F419D9F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -142,12 +155,46 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CFCB24E09C7340EA9F419D9F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D931DEAA0BAD40ACBAB95F12 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F437BDEC19232BE0008D9317 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F437BDFB19232BE0008D9317 /* EFDataModelTests.m in Sources */,
+				F437BE02192332BA008D9317 /* EFTestItem1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +282,7 @@
 		};
 		F437BDFE19232BE0008D9317 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC3A1C80190B48BD8B6BC729 /* Pods.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -255,6 +303,7 @@
 		};
 		F437BDFF19232BE0008D9317 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC3A1C80190B48BD8B6BC729 /* Pods.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

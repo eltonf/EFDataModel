@@ -13,6 +13,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [EFDataManager setDatabaseName:@"EFData.sqlite"];
+    
     return YES;
 }
 							

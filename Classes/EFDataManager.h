@@ -9,7 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @class EFDataModel;
+@class FMDatabaseQueue;
 @interface EFDataManager : NSObject
+
++ (FMDatabaseQueue *)databaseQueue;
++ (void)setDatabaseName:(NSString *)databaseName;
++ (void)setDatabaseMap:(NSDictionary *)databaseMap;
++ (BOOL)deleteDatabaseWitName:(NSString *)databaseName;
 
 #pragma mark - Save
 + (BOOL)saveItems:(NSArray *)items;
