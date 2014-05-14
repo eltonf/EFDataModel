@@ -23,4 +23,12 @@
 #pragma mark - Load
 + (NSArray *)itemsWithDBModel:(EFDataModel *)dbModel criteria:(NSString *)criteria arguments:(NSArray *)arguments;
 
+#pragma mark - Database Helpers
++ (NSString *)tableForDataType:(NSString *)dataType;
++ (NSDictionary *)columnMapForDataType:(NSString *)dataType;
++ (NSString *)classNameForDataType:(NSString *)dataType;
++ (BOOL)dropIfInvalidForDataType:(NSString *)dataType;
++ (BOOL)saveUsingDatabaseQueue:(FMDatabaseQueue *)databaseQueue items:(NSArray *)items dbModel:(EFDataModel *)dbModel;
+//+ (NSArray *)retreiveItemsUsingDatabaseQueue:(FMDatabaseQueue *)databaseQueue dataType:(NSString *)dataType queryCriteria:(NSString *)queryCriteria;
+
 @end

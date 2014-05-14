@@ -7,7 +7,6 @@
 //
 
 #import "EFDataModel.h"
-#import "EFDataDBHelper.h"
 #import "FMResultSet.h"
 #import <objc/runtime.h>
 #import "DDLog.h"
@@ -28,8 +27,8 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     if (self)
     {
         _dataType = dataType;
-        self.table = [EFDataDBHelper tableForDataType:dataType];
-        self.columnMap = [EFDataDBHelper columnMapForDataType:dataType];
+        self.table = [EFDataManager tableForDataType:dataType];
+        self.columnMap = [EFDataManager columnMapForDataType:dataType];
     }
     return self;
 }
@@ -41,7 +40,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 
 - (Class)classForDBModelObject
 {
-    NSString *className = [EFDataDBHelper classNameForDataType:self.dataType];
+    NSString *className = [EFDataManager classNameForDataType:self.dataType];
     if(!className) {
         className = self.dataType;
     }
@@ -101,7 +100,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 
 - (BOOL)dropIfInvalidSchema
 {
-    return [EFDataDBHelper dropIfInvalidForDataType:self.dataType];
+    return [EFDataManager dropIfInvalidForDataType:self.dataType];
 }
 
 - (NSDictionary *)fieldDictionariesByKeyForObject:(id)object
@@ -346,11 +345,11 @@ static inline NSArray *DBModelProperties(id model)
     
     NSString *primaryKeyString;
     if ([primaryColumns count] > 0) {
-        primaryKeyString = [NSString stringWithFormat:@", PRIMARY KEY(%@)", [EFDataDBHelper stringFromArray:primaryColumns separator:@", "]];
+        primaryKeyString = [NSString stringWithFormat:@", PRIMARY KEY(%@)", [EFDataUtility stringFromArray:primaryColumns separator:@", "]];
     } else {
         primaryKeyString = @"";
     }
-    NSString *query = [NSString stringWithFormat:@"CREATE TABLE %@ (%@%@)", self.table, [EFDataDBHelper stringFromArray:columnDefinitions separator:@", "], primaryKeyString];
+    NSString *query = [NSString stringWithFormat:@"CREATE TABLE %@ (%@%@)", self.table, [EFDataUtility stringFromArray:columnDefinitions separator:@", "], primaryKeyString];
     
     return query;
 }

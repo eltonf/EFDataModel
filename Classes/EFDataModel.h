@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EFDataManager.h"
+#import "EFDataUtility.h"
 
 #ifndef EFDataModel
 

@@ -8,7 +8,6 @@
 
 #import "EFDataManager.h"
 #import "EFDataModel.h"
-#import "EFDataDBHelper.h"
 #import "FMDB.h"
 #import "DDLog.h"
 
@@ -25,7 +24,8 @@ static NSDictionary *_databaseMap;
 {
     [super initialize];
     
-    NSString *dbMapFilePath = [[NSBundle mainBundle] pathForResource:@"EFDataModelDatabaseMap" ofType:@"plist"];
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSString *dbMapFilePath = [bundle pathForResource:@"EFDataModelDatabaseMap" ofType:@"plist"];
     _databaseMap = [NSDictionary dictionaryWithContentsOfFile:dbMapFilePath];
     
 //    NSString * dbFilePath = [self databaseFilePathWithFileName:@"EFDataDB.sqlite"];
@@ -98,8 +98,8 @@ static NSDictionary *_databaseMap;
 + (BOOL)saveItems:(NSArray *)items
 {
     id <DBModelProtocol> firstObject = [items firstObject];
-    NSString *dataType = [[firstObject class] dbModelDataType];
-    return [EFDataDBHelper saveUsingDatabaseQueue:_databaseQueue items:items dataType:dataType];
+    EFDataModel *dbModel = [[firstObject class] dbModel];
+    return [self saveUsingDatabaseQueue:_databaseQueue items:items dbModel:dbModel];
 }
 
 #pragma mark - Retrieve Data
@@ -158,6 +158,172 @@ static NSDictionary *_databaseMap;
     [dbModel setValuesOnTarget:item fromResultSet:rs];
     
     return item;
+}
+
+#pragma mark - Private Methods
+
++ (NSString *)tableForDataType:(NSString *)dataType
+{
+    NSDictionary *itemMap = [_databaseMap objectForKey:dataType];
+    return [itemMap objectForKey:@"table"];
+}
+
++ (NSDictionary *)columnMapForDataType:(NSString *)dataType
+{
+    NSDictionary *itemMap = [_databaseMap objectForKey:dataType];
+    return [itemMap objectForKey:@"columnMap"];
+}
+
++ (NSString *)classNameForDataType:(NSString *)dataType
+{
+    NSDictionary *itemMap = [_databaseMap objectForKey:dataType];
+    return [itemMap objectForKey:@"className"];
+}
+
++ (BOOL)dropIfInvalidForDataType:(NSString *)dataType
+{
+    NSDictionary *itemMap = [_databaseMap objectForKey:dataType];
+    return [[itemMap objectForKey:@"dropIfInvalidSchema"] boolValue];
+}
+
++ (BOOL)validateTableForDBModel:(EFDataModel *)dbModel database:(FMDatabase *)database
+{
+    if (![database tableExists:dbModel.table]) {
+        DDLogWarn(@"Table [%@] does NOT exist for dataType [%@]", dbModel.table, dbModel.dataType);
+        return NO;
+    } else {
+        NSMutableSet *dbColumns = [NSMutableSet new];
+        NSMutableSet *primaryKeys = [NSMutableSet new];
+        NSString *query = [NSString stringWithFormat:@"PRAGMA table_info('%@')", dbModel.table];
+        FMResultSet *rs = [database executeQuery:query];
+        while ([rs next]) {
+            NSString *column = [rs stringForColumn:@"name"];
+            [dbColumns addObject:column];
+            NSInteger primaryKeyIndex = [rs intForColumn:@"pk"];
+            if (primaryKeyIndex > 0) {
+                [primaryKeys addObject:column];
+            }
+        }
+        
+        NSSet *modelColumns = [dbModel columns];
+        NSSet *modelPrimaryKeys = [dbModel primaryKeys];
+        return [modelColumns isSubsetOfSet:dbColumns] && [modelPrimaryKeys isEqualToSet:primaryKeys];
+    }
+}
+
++ (BOOL)createTableForDBModel:(EFDataModel *)dbModel object:(id)object database:(FMDatabase *)database
+{
+    DDLogInfo(@"CREATE_TABLE [%@] for dataType [%@]", dbModel.table, dbModel.dataType);
+    NSString *query = [dbModel createTableQueryForModel:object];
+    DDLogDebug(@"CREATE_TABLE_QUERY [%@]", query);
+    return [database executeUpdate:query];
+}
+
++ (BOOL)dropTableForDBModel:(EFDataModel *)dbModel database:(FMDatabase *)database
+{
+    DDLogInfo(@"DROP_TABLE [%@] for dataType [%@]", dbModel.table, dbModel.dataType);
+    NSString *query = [NSString stringWithFormat:@"DROP TABLE %@", dbModel.table];
+    return [database executeUpdate:query];
+}
+
++ (BOOL)saveUsingDatabaseQueue:(FMDatabaseQueue *)databaseQueue items:(NSArray *)items dbModel:(EFDataModel *)dbModel
+{
+#ifdef DEBUG
+	NSDate *time1 = [NSDate date];
+#endif
+    
+    if ([items count] == 0) {
+        return YES;
+    }
+    
+    __block BOOL schemaAcceptable = NO;
+    if (!dbModel.table) {
+        DDLogError(@"ERROR No table defined for dataType [%@]", dbModel.dataType);
+        return NO;
+    }
+    
+    [databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+        schemaAcceptable = [self validateTableForDBModel:dbModel database:db];
+        if (!schemaAcceptable) {
+            if ([dbModel dropIfInvalidSchema]) {
+                [self dropTableForDBModel:dbModel database:db];
+            }
+            schemaAcceptable = [self createTableForDBModel:dbModel object:[items firstObject] database:db];
+        }
+    }];
+    
+    if (!schemaAcceptable) {
+        DDLogError(@"Table schema invalid for dataType [%@]", dbModel.dataType);
+        return NO;
+    }
+    
+    __block BOOL success = NO;
+    [databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+        NSArray *keys = [dbModel columnKeys];
+        for (NSObject *item in items)
+        {
+            NSParameterAssert([item conformsToProtocol:@protocol(DBModelProtocol)]);
+            NSMutableString *query = [NSMutableString stringWithFormat:@"INSERT OR REPLACE INTO %@", dbModel.table];
+            NSMutableString *columnMutableString;
+            NSMutableString *valueMutableString;
+            
+            for (NSString *key in keys)
+            {
+                NSString *column = [dbModel columnForKey:key];
+                if (columnMutableString == nil)
+                    columnMutableString = [NSMutableString stringWithFormat:@"`%@`", column];
+                else
+                    [columnMutableString appendFormat:@", `%@`", column];
+                
+                NSValue *value = [item valueForKey:key];
+                NSMutableString *eachValueString;
+                if (value != nil && (NSNull *)value != [NSNull null])
+                {
+                    if ([value isKindOfClass:[NSDate class]])
+                    {
+                        if (db.hasDateFormatter)
+                            eachValueString = [NSMutableString stringWithString:[db stringFromDate:(NSDate *)value]];
+                        else
+                            eachValueString = [NSMutableString stringWithFormat:@"%f", [(NSDate *)value timeIntervalSince1970]];
+                    }
+                    else
+                        eachValueString = [NSMutableString stringWithFormat:@"%@", value];
+                    
+                    // Escape single quotes
+                    NSRange range = NSMakeRange(0, [eachValueString length]);
+                    [eachValueString replaceOccurrencesOfString:@"'" withString:@"''" options:NSCaseInsensitiveSearch range:range];
+                }
+                else
+                {
+                    eachValueString = [NSMutableString stringWithString:@""];
+                }
+                
+                if (valueMutableString == nil)
+                    valueMutableString = [NSMutableString stringWithFormat:@"'%@'", eachValueString];
+                else
+                    [valueMutableString appendFormat:@", '%@'", eachValueString];
+            }
+            
+            [query appendFormat:@" (%@) VALUES (%@)", columnMutableString, valueMutableString];
+            DDLogVerbose(@"QUERY: %@", query);
+            success = [db executeUpdate:query];
+            if (!success)
+            {
+                DDLogError(@"ERROR: SAVE_DATA (%@) failed", dbModel.dataType);
+                DDLogError(@"Err %d: %@", [db lastErrorCode], [db lastErrorMessage]);
+                *rollback = YES;
+                return;
+            }
+        }
+    }];
+	
+#ifdef DEBUG
+	NSDate *time2 = [NSDate date];
+	NSTimeInterval elapsedTime1 = [time2 timeIntervalSinceDate:time1];
+	DDLogInfo(@"SAVE_DATA (%@): %f seconds | itemCount: %lu", dbModel.dataType, elapsedTime1, (unsigned long)[items count]);
+#endif
+    
+    return YES;
 }
 
 @end
