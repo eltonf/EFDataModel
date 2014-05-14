@@ -32,6 +32,6 @@
 
 + (NSString *)tableName;
 + (NSSet *)primaryKeys;
-+ (NSDictionary *)databaseColumnsByPropertyKey;
++ (NSDictionary *)columnsByPropertyKey;
 
 @end

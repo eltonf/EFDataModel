@@ -35,7 +35,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 + (EFDataModel *)modelWithClass:(Class)class
 {
     if ([class conformsToProtocol:@protocol(DBModelProtocol)]) {
-        return [[EFDataModel alloc] initWithTable:[class tableName] primaryKeys:[class primaryKeys] columnMap:[class databaseColumnsByPropertyKey] class:class];
+        return [[EFDataModel alloc] initWithTable:[class tableName] primaryKeys:[class primaryKeys] columnMap:[class columnsByPropertyKey] class:class];
     } else {
         return nil;
     }

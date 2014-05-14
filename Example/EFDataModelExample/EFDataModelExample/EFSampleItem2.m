@@ -22,7 +22,7 @@
     return @[@"primaryKeyPart1", @"primaryKeyPart2", @"primaryKeyPart3"];
 }
 
-+ (NSDictionary *)databaseColumnsByPropertyKey
++ (NSDictionary *)columnsByPropertyKey
 {
     NSMutableDictionary *columns = [NSMutableDictionary new];
     [columns setObject:@"primary_key" forKey:@"somePrimaryKey"];
