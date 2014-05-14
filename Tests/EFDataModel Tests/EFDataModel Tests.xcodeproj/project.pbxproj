@@ -1,0 +1,295 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F437BDF119232BE0008D9317 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F437BDD4192326A0008D9317 /* XCTest.framework */; };
+		F437BDF219232BE0008D9317 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F437BDC6192326A0008D9317 /* Foundation.framework */; };
+		F437BDF319232BE0008D9317 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F437BDD7192326A0008D9317 /* UIKit.framework */; };
+		F437BDF919232BE0008D9317 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F437BDF719232BE0008D9317 /* InfoPlist.strings */; };
+		F437BDFB19232BE0008D9317 /* EFDataModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F437BDFA19232BE0008D9317 /* EFDataModelTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F437BDC6192326A0008D9317 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F437BDD4192326A0008D9317 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F437BDD7192326A0008D9317 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		F437BDF019232BE0008D9317 /* EFDataModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EFDataModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F437BDF619232BE0008D9317 /* EFDataModelTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EFDataModelTests-Info.plist"; sourceTree = "<group>"; };
+		F437BDF819232BE0008D9317 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F437BDFA19232BE0008D9317 /* EFDataModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EFDataModelTests.m; sourceTree = "<group>"; };
+		F437BDFC19232BE0008D9317 /* EFDataModelTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EFDataModelTests-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F437BDED19232BE0008D9317 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F437BDF119232BE0008D9317 /* XCTest.framework in Frameworks */,
+				F437BDF319232BE0008D9317 /* UIKit.framework in Frameworks */,
+				F437BDF219232BE0008D9317 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F437BDBA192326A0008D9317 = {
+			isa = PBXGroup;
+			children = (
+				F437BDF419232BE0008D9317 /* EFDataModelTests */,
+				F437BDC5192326A0008D9317 /* Frameworks */,
+				F437BDC4192326A0008D9317 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F437BDC4192326A0008D9317 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F437BDF019232BE0008D9317 /* EFDataModelTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F437BDC5192326A0008D9317 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F437BDC6192326A0008D9317 /* Foundation.framework */,
+				F437BDD4192326A0008D9317 /* XCTest.framework */,
+				F437BDD7192326A0008D9317 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F437BDF419232BE0008D9317 /* EFDataModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				F437BDFA19232BE0008D9317 /* EFDataModelTests.m */,
+				F437BDF519232BE0008D9317 /* Supporting Files */,
+			);
+			path = EFDataModelTests;
+			sourceTree = "<group>";
+		};
+		F437BDF519232BE0008D9317 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F437BDF619232BE0008D9317 /* EFDataModelTests-Info.plist */,
+				F437BDF719232BE0008D9317 /* InfoPlist.strings */,
+				F437BDFC19232BE0008D9317 /* EFDataModelTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F437BDEF19232BE0008D9317 /* EFDataModelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F437BDFD19232BE0008D9317 /* Build configuration list for PBXNativeTarget "EFDataModelTests" */;
+			buildPhases = (
+				F437BDEC19232BE0008D9317 /* Sources */,
+				F437BDED19232BE0008D9317 /* Frameworks */,
+				F437BDEE19232BE0008D9317 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EFDataModelTests;
+			productName = EFDataModelTests;
+			productReference = F437BDF019232BE0008D9317 /* EFDataModelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F437BDBB192326A0008D9317 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "290 Design, LLC";
+			};
+			buildConfigurationList = F437BDBE192326A0008D9317 /* Build configuration list for PBXProject "EFDataModel Tests" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F437BDBA192326A0008D9317;
+			productRefGroup = F437BDC4192326A0008D9317 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F437BDEF19232BE0008D9317 /* EFDataModelTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F437BDEE19232BE0008D9317 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F437BDF919232BE0008D9317 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F437BDEC19232BE0008D9317 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F437BDFB19232BE0008D9317 /* EFDataModelTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F437BDF719232BE0008D9317 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F437BDF819232BE0008D9317 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F437BDE4192326A0008D9317 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F437BDE5192326A0008D9317 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F437BDFE19232BE0008D9317 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EFDataModelTests/EFDataModelTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "EFDataModelTests/EFDataModelTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F437BDFF19232BE0008D9317 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EFDataModelTests/EFDataModelTests-Prefix.pch";
+				INFOPLIST_FILE = "EFDataModelTests/EFDataModelTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F437BDBE192326A0008D9317 /* Build configuration list for PBXProject "EFDataModel Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F437BDE4192326A0008D9317 /* Debug */,
+				F437BDE5192326A0008D9317 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F437BDFD19232BE0008D9317 /* Build configuration list for PBXNativeTarget "EFDataModelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F437BDFE19232BE0008D9317 /* Debug */,
+				F437BDFF19232BE0008D9317 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F437BDBB192326A0008D9317 /* Project object */;
+}
