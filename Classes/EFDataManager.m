@@ -81,10 +81,7 @@ static FMDatabaseQueue *_databaseQueue;
 {
     Class class = [[items firstObject] class];
     NSParameterAssert([class conformsToProtocol:@protocol(DBModelProtocol)]);
-//    NSString *tableName = [firstObject tableName];
-//    NSSet *primaryKeys = [firstObject primaryKeys];
-//    NSDictionary *columnMap = [firstObject databaseColumnsByPropertyKey];
-    EFDataModel *dbModel = [EFDataModel modelWithTable:[class tableName] primaryKeys:[class primaryKeys] columnMap:[class databaseColumnsByPropertyKey] class:class];
+    EFDataModel *dbModel = [EFDataModel modelWithClass:class];
     return [self saveUsingDatabaseQueue:_databaseQueue items:items dbModel:dbModel];
 }
 
@@ -93,7 +90,7 @@ static FMDatabaseQueue *_databaseQueue;
 + (NSArray *)itemsWithClass:(Class)class criteria:(NSString *)criteria arguments:(NSArray *)arguments
 {
     NSParameterAssert([class conformsToProtocol:@protocol(DBModelProtocol)]);
-    EFDataModel *dbModel = [EFDataModel modelWithTable:[class tableName] primaryKeys:[class primaryKeys] columnMap:[class databaseColumnsByPropertyKey] class:class];
+    EFDataModel *dbModel = [EFDataModel modelWithClass:class];
     NSMutableString *query = [NSMutableString stringWithFormat:@"SELECT * FROM %@ WHERE %@", dbModel.table, [criteria length] > 0 ? criteria : @"1"];
     return [self itemsWithDataModel:dbModel query:query arguments:arguments];
 }

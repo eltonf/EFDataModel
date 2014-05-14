@@ -39,8 +39,7 @@ typedef NS_ENUM(NSInteger, DBModelValueType)
 @property (copy, nonatomic) NSDictionary *columnMap;
 @property (assign, nonatomic) BOOL dropTableIfInvalidSchema;
 
-+ (EFDataModel *)modelWithTable:(NSString *)table primaryKeys:(NSSet *)primaryKeys columnMap:(NSDictionary *)columnMap class:(Class)class;
-- (instancetype)initWithTable:(NSString *)table primaryKeys:(NSSet *)primaryKeys columnMap:(NSDictionary *)columnMap class:(Class)class;
++ (EFDataModel *)modelWithClass:(Class)class;
 //- (Class)classForDBModelObject;
 - (NSString *)columnForKey:(NSString *)key;
 - (BOOL)isColumnKeyPrimary:(NSString *)columnKey;

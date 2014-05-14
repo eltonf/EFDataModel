@@ -95,7 +95,7 @@
 
 - (NSArray *)itemsWithPrimaryKey1:(NSInteger)primaryKey1 primaryKey2:(NSInteger)primaryKey2 primaryKey3:(NSInteger)primaryKey3
 {
-    EFDataModel *dbModel = [EFDataModel modelWithTable:[EFSampleItem1 tableName] primaryKeys:[EFSampleItem1 primaryKeys] columnMap:[EFSampleItem1 databaseColumnsByPropertyKey]];
+    EFDataModel *dbModel = [EFDataModel modelWithClass:[EFSampleItem1 class]];
     NSMutableString *criteria = [NSMutableString stringWithFormat:@"%@ = ? AND %@ = ? AND %@ = ?",
                                  [dbModel columnForKey:@"primaryKeyPart1"], [dbModel columnForKey:@"primaryKeyPart2"], [dbModel columnForKey:@"primaryKeyPart3"]];
     NSArray *arguments = @[@(primaryKey1), @(primaryKey2), @(primaryKey3)];

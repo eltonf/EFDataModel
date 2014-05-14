@@ -19,18 +19,6 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 
 @implementation EFDataModel
 
-//- (id)initWithDataType:(NSString *)dataType
-//{
-//    self = [super init];
-//    if (self)
-//    {
-//        _dataType = dataType;
-//        self.table = [EFDataManager tableForDataType:dataType];
-//        self.columnMap = [EFDataManager columnMapForDataType:dataType];
-//    }
-//    return self;
-//}
-
 - (instancetype)initWithTable:(NSString *)table primaryKeys:(NSSet *)primaryKeys columnMap:(NSDictionary *)columnMap class:(Class)class
 {
     self = [super init];
@@ -44,24 +32,14 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     return self;
 }
 
-+ (EFDataModel *)modelWithTable:(NSString *)table primaryKeys:(NSSet *)primaryKeys columnMap:(NSDictionary *)columnMap class:(Class)class
++ (EFDataModel *)modelWithClass:(Class)class
 {
-    return [[EFDataModel alloc] initWithTable:table primaryKeys:primaryKeys columnMap:columnMap class:class];
+    if ([class conformsToProtocol:@protocol(DBModelProtocol)]) {
+        return [[EFDataModel alloc] initWithTable:[class tableName] primaryKeys:[class primaryKeys] columnMap:[class databaseColumnsByPropertyKey] class:class];
+    } else {
+        return nil;
+    }
 }
-
-//+ (EFDataModel *)modelForDataType:(NSString *)dataType
-//{
-//    return [[EFDataModel alloc] initWithDataType:dataType];
-//}
-
-//- (Class)classForDBModelObject
-//{
-//    NSString *className = [EFDataManager classNameForDataType:self.dataType];
-//    if(!className) {
-//        className = self.dataType;
-//    }
-//    return NSClassFromString(className);
-//}
 
 - (NSString *)columnForKey:(NSString *)key
 {
