@@ -1,5 +1,5 @@
 //
-//  EFFirstViewController.h
+//  EFSampleItem1TableViewController.h
 //  EFDataModelExample
 //
 //  Created by Elton Faggett on 5/13/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EFFirstViewController : UIViewController
+@interface EFSampleItem1TableViewController : UITableViewController
 
 @end

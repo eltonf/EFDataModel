@@ -1,0 +1,28 @@
+PODS:
+  - CocoaLumberjack (1.8.1):
+    - CocoaLumberjack/Extensions
+  - CocoaLumberjack/Core (1.8.1)
+  - CocoaLumberjack/Extensions (1.8.1):
+    - CocoaLumberjack/Core
+  - EFDataModel (0.1.0):
+    - CocoaLumberjack (~> 1.8.1)
+    - FMDB (~> 2.2)
+  - FMDB (2.3):
+    - FMDB/standard
+  - FMDB/common (2.3)
+  - FMDB/standard (2.3):
+    - FMDB/common
+
+DEPENDENCIES:
+  - EFDataModel (from `../..`)
+
+EXTERNAL SOURCES:
+  EFDataModel:
+    :path: ../..
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: 020378ec400d658923bf5887178394f65f052c90
+  EFDataModel: 6e6c1230b802e10838a18ba958e3bfb996bba259
+  FMDB: 8b6b69b1164e3007d7f4b3b3719e667602ec247e
+
+COCOAPODS: 0.32.1
