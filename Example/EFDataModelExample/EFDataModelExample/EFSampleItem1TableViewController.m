@@ -95,17 +95,16 @@
 
 - (NSArray *)itemsWithPrimaryKey1:(NSInteger)primaryKey1 primaryKey2:(NSInteger)primaryKey2 primaryKey3:(NSInteger)primaryKey3
 {
-    EFDataModel *dbModel = [EFSampleItem1 dbModel];
+    EFDataModel *dbModel = [EFDataModel modelWithTable:[EFSampleItem1 tableName] primaryKeys:[EFSampleItem1 primaryKeys] columnMap:[EFSampleItem1 databaseColumnsByPropertyKey]];
     NSMutableString *criteria = [NSMutableString stringWithFormat:@"%@ = ? AND %@ = ? AND %@ = ?",
-                            [dbModel columnForKey:@"primaryKeyPart1"], [dbModel columnForKey:@"primaryKeyPart2"], [dbModel columnForKey:@"primaryKeyPart3"]];
+                                 [dbModel columnForKey:@"primaryKeyPart1"], [dbModel columnForKey:@"primaryKeyPart2"], [dbModel columnForKey:@"primaryKeyPart3"]];
     NSArray *arguments = @[@(primaryKey1), @(primaryKey2), @(primaryKey3)];
-    return [EFDataManager itemsWithDBModel:dbModel criteria:criteria arguments:arguments];
+    return [EFDataManager itemsWithClass:[EFSampleItem1 class] criteria:criteria arguments:arguments];
 }
 
 - (NSArray *)allItems
 {
-    EFDataModel *dbModel = [EFSampleItem1 dbModel];
-    return [EFDataManager itemsWithDBModel:dbModel criteria:nil arguments:nil];
+    return [EFDataManager itemsWithClass:[EFSampleItem1 class] criteria:nil arguments:nil];
 }
 
 #pragma mark - Table view data source

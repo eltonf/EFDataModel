@@ -10,14 +10,29 @@
 
 @implementation EFSampleItem2
 
-+ (NSString *)dbModelDataType
+#pragma mark - DBModelProtocol
+
++ (NSString *)tableName
 {
     return NSStringFromClass([self class]);
 }
 
-+ (EFDataModel *)dbModel
++ (NSArray *)primaryKeys
 {
-    return [[EFDataModel alloc] initWithDataType:[self dbModelDataType]];
+    return @[@"primaryKeyPart1", @"primaryKeyPart2", @"primaryKeyPart3"];
+}
+
++ (NSDictionary *)databaseColumnsByPropertyKey
+{
+    NSMutableDictionary *columns = [NSMutableDictionary new];
+    [columns setObject:@"primary_key" forKey:@"somePrimaryKey"];
+    [columns setObject:@"string_value" forKey:@"stringValue"];
+    [columns setObject:@"integer_value" forKey:@"integerValue"];
+    [columns setObject:@"double_value" forKey:@"doubleValue"];
+    [columns setObject:@"bool_value" forKey:@"boolValue"];
+    [columns setObject:@"date_value" forKey:@"dateValue"];
+    
+    return columns;
 }
 
 @end

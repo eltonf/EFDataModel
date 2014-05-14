@@ -44,7 +44,7 @@
 - (void)testSave
 {
     EFTestItem1 *item = [self createSampleItem];
-    EFDataModel *dbModel = [EFTestItem1 dbModel];
+    EFDataModel *dbModel = [EFDataModel modelWithTable:[EFTestItem1 tableName] primaryKeys:[EFTestItem1 primaryKeys] columnMap:[EFTestItem1 databaseColumnsByPropertyKey] class:[EFTestItem1 class]];
     NSString *query = [NSString stringWithFormat:@"SELECT COUNT(*) FROM %@", dbModel.table];
     __block NSInteger count1;
     [[EFDataManager databaseQueue] inDatabase:^(FMDatabase *db) {
@@ -129,17 +129,16 @@
 
 - (NSArray *)itemsWithPrimaryKey1:(NSInteger)primaryKey1 primaryKey2:(NSInteger)primaryKey2 primaryKey3:(NSInteger)primaryKey3
 {
-    EFDataModel *dbModel = [EFTestItem1 dbModel];
+    EFDataModel *dbModel = [EFDataModel modelWithTable:[EFTestItem1 tableName] primaryKeys:[EFTestItem1 primaryKeys] columnMap:[EFTestItem1 databaseColumnsByPropertyKey] class:[EFTestItem1 class]];
     NSMutableString *criteria = [NSMutableString stringWithFormat:@"%@ = ? AND %@ = ? AND %@ = ?",
                                  [dbModel columnForKey:@"primaryKeyPart1"], [dbModel columnForKey:@"primaryKeyPart2"], [dbModel columnForKey:@"primaryKeyPart3"]];
     NSArray *arguments = @[@(primaryKey1), @(primaryKey2), @(primaryKey3)];
-    return [EFDataManager itemsWithDBModel:dbModel criteria:criteria arguments:arguments];
+    return [EFDataManager itemsWithClass:[EFTestItem1 class] criteria:criteria arguments:arguments];
 }
 
 - (NSArray *)allItems
 {
-    EFDataModel *dbModel = [EFTestItem1 dbModel];
-    return [EFDataManager itemsWithDBModel:dbModel criteria:nil arguments:nil];
+    return [EFDataManager itemsWithClass:[EFTestItem1 class] criteria:nil arguments:nil];
 }
 
 @end

@@ -33,27 +33,22 @@ typedef NS_ENUM(NSInteger, DBModelValueType)
 @class FMResultSet;
 @interface EFDataModel : NSObject
 
-@property (copy, nonatomic, readonly) NSString *dataType;
+@property (copy, nonatomic) Class class;
 @property (copy, nonatomic) NSString *table;
+@property (copy, nonatomic) NSSet *primaryKeys;
+@property (copy, nonatomic) NSDictionary *columnMap;
+@property (assign, nonatomic) BOOL dropTableIfInvalidSchema;
 
-+ (EFDataModel *)modelForDataType:(NSString *)dataType;
-- (id)initWithDataType:(NSString *)dataType;
-- (Class)classForDBModelObject;
++ (EFDataModel *)modelWithTable:(NSString *)table primaryKeys:(NSSet *)primaryKeys columnMap:(NSDictionary *)columnMap class:(Class)class;
+- (instancetype)initWithTable:(NSString *)table primaryKeys:(NSSet *)primaryKeys columnMap:(NSDictionary *)columnMap class:(Class)class;
+//- (Class)classForDBModelObject;
 - (NSString *)columnForKey:(NSString *)key;
 - (BOOL)isColumnKeyPrimary:(NSString *)columnKey;
-- (NSSet *)primaryKeys;
+//- (NSSet *)primaryKeys;
 - (NSSet *)columns;
 - (NSArray *)columnKeys;
 - (void)setValuesOnTarget:(id)target fromResultSet:(FMResultSet *)rs;
 - (NSString *)createTableQueryForModel:(id)model;
-- (BOOL)dropIfInvalidSchema;
-
-@end
-
-@protocol DBModelProtocol <NSObject>
-
-@required
-+ (NSString *)dbModelDataType;
-+ (EFDataModel *)dbModel;
+//- (BOOL)dropIfInvalidSchema;
 
 @end

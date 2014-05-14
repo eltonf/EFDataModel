@@ -15,43 +15,59 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 
 @interface EFDataModel ()
 
-@property (strong, nonatomic) NSDictionary *columnMap;
-
 @end
 
 @implementation EFDataModel
 
-- (id)initWithDataType:(NSString *)dataType
+//- (id)initWithDataType:(NSString *)dataType
+//{
+//    self = [super init];
+//    if (self)
+//    {
+//        _dataType = dataType;
+//        self.table = [EFDataManager tableForDataType:dataType];
+//        self.columnMap = [EFDataManager columnMapForDataType:dataType];
+//    }
+//    return self;
+//}
+
+- (instancetype)initWithTable:(NSString *)table primaryKeys:(NSSet *)primaryKeys columnMap:(NSDictionary *)columnMap class:(Class)class
 {
     self = [super init];
     if (self)
     {
-        _dataType = dataType;
-        self.table = [EFDataManager tableForDataType:dataType];
-        self.columnMap = [EFDataManager columnMapForDataType:dataType];
+        _table = table;
+        _primaryKeys = primaryKeys;
+        _columnMap = columnMap;
+        _class = class;
     }
     return self;
 }
 
-+ (EFDataModel *)modelForDataType:(NSString *)dataType
++ (EFDataModel *)modelWithTable:(NSString *)table primaryKeys:(NSSet *)primaryKeys columnMap:(NSDictionary *)columnMap class:(Class)class
 {
-    return [[EFDataModel alloc] initWithDataType:dataType];
+    return [[EFDataModel alloc] initWithTable:table primaryKeys:primaryKeys columnMap:columnMap class:class];
 }
 
-- (Class)classForDBModelObject
-{
-    NSString *className = [EFDataManager classNameForDataType:self.dataType];
-    if(!className) {
-        className = self.dataType;
-    }
-    return NSClassFromString(className);
-}
+//+ (EFDataModel *)modelForDataType:(NSString *)dataType
+//{
+//    return [[EFDataModel alloc] initWithDataType:dataType];
+//}
+
+//- (Class)classForDBModelObject
+//{
+//    NSString *className = [EFDataManager classNameForDataType:self.dataType];
+//    if(!className) {
+//        className = self.dataType;
+//    }
+//    return NSClassFromString(className);
+//}
 
 - (NSString *)columnForKey:(NSString *)key
 {
     id object = [self.columnMap objectForKey:key];
     if (object == nil) {
-        DDLogError(@"%@ | %@ is nil", self.dataType, key);
+        DDLogError(@"%@ | %@ is nil", self.class, key);
         return nil;
     } else if ([object isKindOfClass:[NSString class]]) {
         return (NSString *)object;
@@ -98,10 +114,10 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     return [self.columnMap allKeys];
 }
 
-- (BOOL)dropIfInvalidSchema
-{
-    return [EFDataManager dropIfInvalidForDataType:self.dataType];
-}
+//- (BOOL)dropIfInvalidSchema
+//{
+//    return [EFDataManager dropIfInvalidForDataType:self.dataType];
+//}
 
 - (NSDictionary *)fieldDictionariesByKeyForObject:(id)object
 {

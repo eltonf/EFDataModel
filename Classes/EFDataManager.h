@@ -10,25 +10,28 @@
 
 @class EFDataModel;
 @class FMDatabaseQueue;
+@protocol DBModelProtocol;
 @interface EFDataManager : NSObject
 
 + (FMDatabaseQueue *)databaseQueue;
 + (void)setDatabaseName:(NSString *)databaseName;
-+ (void)setDatabaseMap:(NSDictionary *)databaseMap;
 + (BOOL)deleteDatabaseWitName:(NSString *)databaseName;
 
 #pragma mark - Save
 + (BOOL)saveItems:(NSArray *)items;
 
 #pragma mark - Load
-+ (NSArray *)itemsWithDBModel:(EFDataModel *)dbModel criteria:(NSString *)criteria arguments:(NSArray *)arguments;
++ (NSArray *)itemsWithClass:(Class)class criteria:(NSString *)criteria arguments:(NSArray *)arguments;
 
-#pragma mark - Database Helpers
-+ (NSString *)tableForDataType:(NSString *)dataType;
-+ (NSDictionary *)columnMapForDataType:(NSString *)dataType;
-+ (NSString *)classNameForDataType:(NSString *)dataType;
-+ (BOOL)dropIfInvalidForDataType:(NSString *)dataType;
-+ (BOOL)saveUsingDatabaseQueue:(FMDatabaseQueue *)databaseQueue items:(NSArray *)items dbModel:(EFDataModel *)dbModel;
-//+ (NSArray *)retreiveItemsUsingDatabaseQueue:(FMDatabaseQueue *)databaseQueue dataType:(NSString *)dataType queryCriteria:(NSString *)queryCriteria;
+@end
+
+@protocol DBModelProtocol <NSObject>
+
+@required
+//+ (EFDataModel *)dbModel;
+
++ (NSString *)tableName;
++ (NSSet *)primaryKeys;
++ (NSDictionary *)databaseColumnsByPropertyKey;
 
 @end
