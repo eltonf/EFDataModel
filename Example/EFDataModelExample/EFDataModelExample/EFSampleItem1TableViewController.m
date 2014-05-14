@@ -8,7 +8,7 @@
 
 #import "EFSampleItem1TableViewController.h"
 #import "EFDataManager.h"
-#import "SampleItem1.h"
+#import "EFSampleItem1.h"
 
 @interface EFSampleItem1TableViewController ()
 
@@ -60,7 +60,7 @@
     NSInteger primaryKey1 = [self randomNumberFrom:0 to:1000];
     NSInteger primaryKey2 = [self randomNumberFrom:1001 to:2000];
     NSInteger primaryKey3 = [self randomNumberFrom:2001 to:3000];
-    SampleItem1 *sampleItem = [[SampleItem1 alloc] initWithPrimaryKey1:primaryKey1 primaryKey2:primaryKey2 primaryKey3:primaryKey3];
+    EFSampleItem1 *sampleItem = [[EFSampleItem1 alloc] initWithPrimaryKey1:primaryKey1 primaryKey2:primaryKey2 primaryKey3:primaryKey3];
     sampleItem.stringValue = [self randomText];
     sampleItem.integerValue = [self randomNumberFrom:0 to:1000];
     sampleItem.boolValue = [self randomNumberFrom:0 to:1];
@@ -88,7 +88,7 @@
 
 - (NSArray *)itemsWithPrimaryKey1:(NSInteger)primaryKey1 primaryKey2:(NSInteger)primaryKey2 primaryKey3:(NSInteger)primaryKey3
 {
-    EFDataModel *dbModel = [SampleItem1 dbModel];
+    EFDataModel *dbModel = [EFSampleItem1 dbModel];
     NSMutableString *criteria = [NSMutableString stringWithFormat:@"%@ = ? AND %@ = ? AND %@ = ?",
                             [dbModel columnForKey:@"primaryKeyPart1"], [dbModel columnForKey:@"primaryKeyPart2"], [dbModel columnForKey:@"primaryKeyPart3"]];
     NSArray *arguments = @[@(primaryKey1), @(primaryKey2), @(primaryKey3)];
@@ -97,13 +97,13 @@
 
 - (NSArray *)allItems
 {
-    EFDataModel *dbModel = [SampleItem1 dbModel];
+    EFDataModel *dbModel = [EFSampleItem1 dbModel];
     return [EFDataManager itemsWithDBModel:dbModel criteria:nil arguments:nil];
 }
 
 #pragma mark - Table view data source
 
-- (SampleItem1 *)itemAtIndexPath:(NSIndexPath *)indexPath
+- (EFSampleItem1 *)itemAtIndexPath:(NSIndexPath *)indexPath
 {
     return self.sampleItems[indexPath.row];
 }
@@ -125,7 +125,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SampleItemCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    SampleItem1 *item = [self itemAtIndexPath:indexPath];
+    EFSampleItem1 *item = [self itemAtIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"key1 [%ld], key2 [%ld], key3 [%ld]", (long)item.primaryKeyPart1, (long)item.primaryKeyPart2, (long)item.primaryKeyPart3];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"string [%@], integer [%ld], bool [%@], date [%@]", item.stringValue, (long)item.integerValue, item.boolValue ? @"YES" : @"NO", item.dateValue];
     

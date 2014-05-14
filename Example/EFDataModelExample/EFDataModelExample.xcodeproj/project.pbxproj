@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		589E2BEAB5BC4FD89C947FE4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4897E756A014E718257A8EA /* libPods.a */; };
 		F437BD7E1922E3F5008D9317 /* EFDataModelDatabaseMap.plist in Resources */ = {isa = PBXBuildFile; fileRef = F437BD7D1922E3F5008D9317 /* EFDataModelDatabaseMap.plist */; };
-		F437BD811922E5AF008D9317 /* SampleItem1.m in Sources */ = {isa = PBXBuildFile; fileRef = F437BD801922E5AF008D9317 /* SampleItem1.m */; };
-		F437BD841922E61F008D9317 /* SampleItem2.m in Sources */ = {isa = PBXBuildFile; fileRef = F437BD831922E61F008D9317 /* SampleItem2.m */; };
+		F437BD811922E5AF008D9317 /* EFSampleItem1.m in Sources */ = {isa = PBXBuildFile; fileRef = F437BD801922E5AF008D9317 /* EFSampleItem1.m */; };
+		F437BD841922E61F008D9317 /* EFSampleItem2.m in Sources */ = {isa = PBXBuildFile; fileRef = F437BD831922E61F008D9317 /* EFSampleItem2.m */; };
 		F437BD871922EC4B008D9317 /* EFSampleItem1TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F437BD861922EC4B008D9317 /* EFSampleItem1TableViewController.m */; };
 		F4BC55CD1922CF380057BAE4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BC55CC1922CF380057BAE4 /* Foundation.framework */; };
 		F4BC55CF1922CF380057BAE4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BC55CE1922CF380057BAE4 /* CoreGraphics.framework */; };
@@ -43,10 +43,10 @@
 		81BC60F62A514E51847BDBD4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		B4897E756A014E718257A8EA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F437BD7D1922E3F5008D9317 /* EFDataModelDatabaseMap.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EFDataModelDatabaseMap.plist; sourceTree = "<group>"; };
-		F437BD7F1922E5AF008D9317 /* SampleItem1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleItem1.h; sourceTree = "<group>"; };
-		F437BD801922E5AF008D9317 /* SampleItem1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleItem1.m; sourceTree = "<group>"; };
-		F437BD821922E61F008D9317 /* SampleItem2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleItem2.h; sourceTree = "<group>"; };
-		F437BD831922E61F008D9317 /* SampleItem2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleItem2.m; sourceTree = "<group>"; };
+		F437BD7F1922E5AF008D9317 /* EFSampleItem1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFSampleItem1.h; sourceTree = "<group>"; };
+		F437BD801922E5AF008D9317 /* EFSampleItem1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFSampleItem1.m; sourceTree = "<group>"; };
+		F437BD821922E61F008D9317 /* EFSampleItem2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFSampleItem2.h; sourceTree = "<group>"; };
+		F437BD831922E61F008D9317 /* EFSampleItem2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFSampleItem2.m; sourceTree = "<group>"; };
 		F437BD851922EC4B008D9317 /* EFSampleItem1TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFSampleItem1TableViewController.h; sourceTree = "<group>"; };
 		F437BD861922EC4B008D9317 /* EFSampleItem1TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFSampleItem1TableViewController.m; sourceTree = "<group>"; };
 		F4BC55C91922CF380057BAE4 /* EFDataModelExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EFDataModelExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,10 +147,10 @@
 				F437BD861922EC4B008D9317 /* EFSampleItem1TableViewController.m */,
 				F4BC55E71922CF380057BAE4 /* EFSecondViewController.h */,
 				F4BC55E81922CF380057BAE4 /* EFSecondViewController.m */,
-				F437BD7F1922E5AF008D9317 /* SampleItem1.h */,
-				F437BD801922E5AF008D9317 /* SampleItem1.m */,
-				F437BD821922E61F008D9317 /* SampleItem2.h */,
-				F437BD831922E61F008D9317 /* SampleItem2.m */,
+				F437BD7F1922E5AF008D9317 /* EFSampleItem1.h */,
+				F437BD801922E5AF008D9317 /* EFSampleItem1.m */,
+				F437BD821922E61F008D9317 /* EFSampleItem2.h */,
+				F437BD831922E61F008D9317 /* EFSampleItem2.m */,
 				F4BC55EA1922CF380057BAE4 /* Images.xcassets */,
 				F437BD7C1922E3F5008D9317 /* Resources */,
 				F4BC55D31922CF380057BAE4 /* Supporting Files */,
@@ -325,9 +325,9 @@
 				F4BC55D91922CF380057BAE4 /* main.m in Sources */,
 				F4BC55E91922CF380057BAE4 /* EFSecondViewController.m in Sources */,
 				F437BD871922EC4B008D9317 /* EFSampleItem1TableViewController.m in Sources */,
-				F437BD811922E5AF008D9317 /* SampleItem1.m in Sources */,
+				F437BD811922E5AF008D9317 /* EFSampleItem1.m in Sources */,
 				F4BC55DD1922CF380057BAE4 /* EFAppDelegate.m in Sources */,
-				F437BD841922E61F008D9317 /* SampleItem2.m in Sources */,
+				F437BD841922E61F008D9317 /* EFSampleItem2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

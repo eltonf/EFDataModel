@@ -1,14 +1,14 @@
 //
-//  SampleItem1.m
+//  EFSampleItem1.m
 //  EFDataModelExample
 //
 //  Created by Elton Faggett on 5/13/14.
 //  Copyright (c) 2014 290 Design, LLC. All rights reserved.
 //
 
-#import "SampleItem1.h"
+#import "EFSampleItem1.h"
 
-@implementation SampleItem1
+@implementation EFSampleItem1
 
 + (NSString *)dbModelDataType
 {

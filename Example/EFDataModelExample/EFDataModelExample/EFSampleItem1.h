@@ -1,5 +1,5 @@
 //
-//  SampleItem1.h
+//  EFSampleItem1.h
 //  EFDataModelExample
 //
 //  Created by Elton Faggett on 5/13/14.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SampleItem1 : NSObject <DBModelProtocol>
+@interface EFSampleItem1 : NSObject <DBModelProtocol>
 
 @property (nonatomic, readonly) NSInteger primaryKeyPart1;
 @property (nonatomic, readonly) NSInteger primaryKeyPart2;
